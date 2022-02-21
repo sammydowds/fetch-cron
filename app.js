@@ -3,7 +3,7 @@ const sendEmail = require('./actions/sendEmail');
 const fetchYahooStockTickerData = require('./fetches/fetchYahooStockTickerData');
 require('dotenv').config();
 
-schedule.scheduleJob('5 8 * * *', async () => {
+schedule.scheduleJob('10 8 * * *', async () => {
   console.log('Fetching data -------------------')
   const tslaStockData = await fetchYahooStockTickerData('TSLA')
   console.log('Data fetched: ', tslaStockData)

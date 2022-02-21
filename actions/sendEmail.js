@@ -1,7 +1,7 @@
 const nodemailer = require('nodemailer')
 const getDailyEmailHtml = require('./getDailyEmailHtml')
 
-module.exports = (emailText) => {
+module.exports = (data) => {
     let transporter = nodemailer.createTransport({
         service: 'gmail',
         auth: {
@@ -13,13 +13,13 @@ module.exports = (emailText) => {
           refreshToken: process.env.OAUTH_REFRESH_TOKEN
         }
       });
-      const html = getDailyEmailHtml()
+      const html = getDailyEmailHtml(data)
       console.log('HTML rendered', html)
       let mailOptions = {
         from: process.env.FROM_EMAIL,
         to: process.env.TO_EMAIL,
         subject: 'Daily Brief',
-        text: emailText
+        html: html
       };
     return new Promise((resolve, reject) => {
         transporter.sendMail(mailOptions, function(err) {
@@ -31,4 +31,5 @@ module.exports = (emailText) => {
           });
         }
     )
+
 }

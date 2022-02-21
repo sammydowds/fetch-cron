@@ -1,6 +1,6 @@
 const ReactDOMServer = require('react-dom/server')
-const Email = require('../lib/email').default
+const Email = require('../lib/email').Email
 
-module.export = () => {
-  return ReactDOMServer.renderToStaticMarkup(Email)
+module.exports = (data) => {
+  return ReactDOMServer.renderToStaticMarkup(Email(data))
 }
