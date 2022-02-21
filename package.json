@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "build": "babel templates --out-dir lib",
     "start": "node app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -12,6 +13,12 @@
   "dependencies": {
     "dotenv": "^16.0.0",
     "node-schedule": "^2.1.0",
-    "nodemailer": "^6.7.2"
+    "nodemailer": "^6.7.2",
+    "react-dom": "^17.0.2"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.17.3",
+    "@babel/preset-env": "^7.16.11",
+    "@babel/preset-react": "^7.16.7"
   }
 }
