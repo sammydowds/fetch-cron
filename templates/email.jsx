@@ -1,11 +1,13 @@
 import React from 'react'
+import Stock from './Stock'
 
 export const Email = (data) => {
   return (
     <div> 
       <h1>Good Morning Samuel</h1>
-      <p>Today is going to be a great day!</p>
-      <p>This is an example component for rendering: {data}</p>
+      <h2>Stocks</h2>
+      <Stock ticker={'TSLA'} data={data.tslaData} />
+      <Stock ticker={'VTSAX'} data={data.vtsaxData} />
     </div>
   )
 }

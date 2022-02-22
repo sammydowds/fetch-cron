@@ -1,4 +1,5 @@
-const http = require('https')
+const http = require('https');
+const processStockSummaryDetail = require('./helpers/processStockSummaryDetail');
 
 module.exports = (ticker) => {
     const yahooApiOptions = {
@@ -20,7 +21,8 @@ module.exports = (ticker) => {
 
             res.on("end", function () {
                 const body = Buffer.concat(chunks);
-                resolve(body.toString())
+                const bodyJSON = body.toJSON()
+                resolve(processStockSummaryDetail(JSON.parse(body.toString())))
             });
         })
         req.on("error", (err) => {

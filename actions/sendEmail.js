@@ -14,7 +14,6 @@ module.exports = (data) => {
         }
       });
       const html = getDailyEmailHtml(data)
-      console.log('HTML rendered', html)
       let mailOptions = {
         from: process.env.FROM_EMAIL,
         to: process.env.TO_EMAIL,
