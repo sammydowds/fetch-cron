@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "build": "babel templates --out-dir lib",
-    "start": "babel templates --out-dir lib && node app.js",
+    "start": "npm install && babel templates --out-dir lib && node app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
