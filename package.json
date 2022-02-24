@@ -4,14 +4,20 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "node app.js",
+    "build": "babel templates --out-dir lib",
+    "start": "npm install && babel templates --out-dir lib && node app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@babel/cli": "^7.17.3",
+    "@babel/preset-env": "^7.16.11",
+    "@babel/preset-react": "^7.16.7",
     "dotenv": "^16.0.0",
     "node-schedule": "^2.1.0",
-    "nodemailer": "^6.7.2"
+    "nodemailer": "^6.7.2",
+    "react-dom": "^17.0.2",
+    "rss-parser": "^3.12.0"
   }
 }
