@@ -1,5 +1,6 @@
 import React from 'react'
 import Stock from './Stock'
+import NewsArticle from './NewsArticle'
 
 export const Email = (data) => {
   return (
@@ -9,20 +10,14 @@ export const Email = (data) => {
       <Stock ticker={'TSLA'} data={data.tslaData} />
       <Stock ticker={'VTSAX'} data={data.vtsaxData} />
       <h2>NPR Top Stories</h2>
-      <p>
-        <strong>{data.nprTopStories.items[0].title}</strong>
-        <br></br>
-        {data.nprTopStories.items[0].content}
-        <br></br>
-        <a href={data.nprTopStories.items[0].link}>Read Here</a>
-      </p>
-      <p>
-        <strong>{data.nprTopStories.items[1].title}</strong>
-        <br></br>
-        {data.nprTopStories.items[1].content}
-        <br></br>
-        <a href={data.nprTopStories.items[1].link}>Read Here</a>
-      </p>
+      <small>Top Stories</small>
+      <NewsArticle article={data.nprTopStories.items[0]} />
+      <small>Architecture</small>
+      <NewsArticle article={data.nprArchitectureStories.items[0]} />
+      <small>Tech</small>
+      <NewsArticle article={data.nprTechStories.items[0]} />
+      <small>World</small>
+      <NewsArticle article={data.nprWorldStories.items[0]} />
     </div>
   )
 }
