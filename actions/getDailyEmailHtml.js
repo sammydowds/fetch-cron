@@ -10,7 +10,10 @@ module.exports = (data) => {
         nprTopStories: data.nprTopStories,
         nprArchitectureStories: data.nprArchitectureStories,
         nprTechStories: data.nprTechStories,
-        nprWorldStories: data.nprWorldStories
+        nprWorldStories: data.nprWorldStories,
+        cmuSeiRssFeed: data.cmuSeiRssFeed,
+        mechEngRssFeed: data.mechEngRssFeed,
+        histChannelFeed: data.histChannelFeed
       }
     )
   )

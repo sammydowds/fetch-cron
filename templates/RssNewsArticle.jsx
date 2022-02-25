@@ -1,6 +1,6 @@
 import React from 'react'
 
-const NewsArticle = ({ article }) => {
+const RssNewsArticle = ({ article }) => {
   return (
     <p>
         <strong>{article.title}</strong>
@@ -12,4 +12,4 @@ const NewsArticle = ({ article }) => {
   )
 }
 
-export default NewsArticle
+export default RssNewsArticle
