@@ -7,7 +7,7 @@ module.exports = (data) => {
         auth: {
           type: 'OAuth2',
           user: process.env.EMAIL_USERNAME,
-          pass: process.env.EMAIL_PWORD,
+          pass: process.env.EMAIL_PASSWORD,
           clientId: process.env.OAUTH_CLIENT_ID,
           clientSecret: process.env.OAUTH_CLIENT_SECRET,
           refreshToken: process.env.OAUTH_REFRESH_TOKEN
@@ -23,7 +23,8 @@ module.exports = (data) => {
     return new Promise((resolve, reject) => {
         transporter.sendMail(mailOptions, function(err) {
             if (err) {
-              reject("Email was not sent")
+              console.log('ERROR HERE: ', err)
+              reject("Email was not sent", err)
             } else {
               resolve("Email was sent successfully")
             }
