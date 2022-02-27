@@ -9,6 +9,12 @@ export const Email = (data) => {
   return (
     <div> 
       <h1>Good Morning</h1>
+
+      <div css={styles.sectionContainer}>
+        <h2>This Day In History</h2>
+        <RssNewsArticle article={data.histChannelFeed.items[0]} />
+        <RssNewsArticle article={data.histChannelFeed.items[1]} />
+      </div>
       
       <div css={styles.sectionContainer}>
         <h2>Stocks</h2>
@@ -28,12 +34,6 @@ export const Email = (data) => {
         <h2>Engineering</h2>
         <RssNewsArticle article={data.cmuSeiRssFeed.items[0]} sectionTitle='CMU Software Engineering Insights'/>
         <RssNewsArticle article={data.mechEngRssFeed.items[0]} sectionTitle='Mechanical Engineering Notes'/>
-      </div>
-
-      <div css={styles.sectionContainer}>
-        <h2>History</h2>
-        <RssNewsArticle article={data.histChannelFeed.items[0]} />
-        <RssNewsArticle article={data.histChannelFeed.items[1]} />
       </div>
 
     </div>
