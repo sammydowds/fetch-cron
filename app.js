@@ -8,7 +8,7 @@ const mechEngineeringNotesFeed= require('./fetches/rss/menotes');
 const historyChannelFeed = require('./fetches/rss/historyChannel');
 require('dotenv').config();
 
-schedule.scheduleJob('31 13 * * *', async () => {
+schedule.scheduleJob('44 10 * * *', async () => {
 
   console.log('Fetching yahoo data -------------------')
   const tslaStockData = await fetchYahooStockTickerData('TSLA')

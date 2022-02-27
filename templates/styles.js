@@ -1,13 +1,12 @@
 import { css } from '@emotion/react'
 
+// NOTE: good resource for understanding what is accepted for emails: https://www.campaignmonitor.com/css/
+
 export const sectionContainer = css`
+    border: 1px solid gray;
     border-radius: 5px;
     margin: 15px 0px;
-    display: flex;
-    flex-direction: column;
     padding: 15px;
-    justify-content: center;
-    box-shadow: rgba(67, 71, 85, 0.27) 0px 0px 0.25em, rgba(90, 125, 188, 0.05) 0px 0.25em 1em;
 `
 
 export const up = css`

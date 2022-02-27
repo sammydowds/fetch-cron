@@ -1,7 +1,7 @@
 
 const fs = require('fs')
 const stockSummary = require('../templates/fixtures/stockSummary')
-const getDailyEmailHtml = require('./getDailyEmailHtml')
+const renderToDesktopEmailHtml = require('./renderToDesktopEmailHtml')
 const processStockSummaryDetail = require('../fetches/helpers/processStockSummaryDetail');
 require('dotenv').config();
 
@@ -42,9 +42,8 @@ const SAMPLE_DATA = {
     mechEngRssFeed: EMPTY_RSS_FEED,
     histChannelFeed: EMPTY_RSS_FEED
 }
-const htmlString = getDailyEmailHtml(SAMPLE_DATA)
-const content = `<!DOCTYPE html><html><head></head><body>${htmlString}</body></html>`
-fs.writeFile(PREVIEW_LOCATION, content, err => {
+const htmlString = renderToDesktopEmailHtml(SAMPLE_DATA)
+fs.writeFile(PREVIEW_LOCATION, htmlString, err => {
     if (err) {
         console.error(err)
         return
