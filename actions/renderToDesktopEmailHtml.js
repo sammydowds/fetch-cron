@@ -26,7 +26,8 @@ module.exports = (data) => {
                     nprWorldStories: data.nprWorldStories,
                     cmuSeiRssFeed: data.cmuSeiRssFeed,
                     mechEngRssFeed: data.mechEngRssFeed,
-                    histChannelFeed: data.histChannelFeed
+                    histChannelFeed: data.histChannelFeed,
+                    nprPodcasts: data.nprPodcasts
                   }
              )
         )

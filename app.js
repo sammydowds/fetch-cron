@@ -6,9 +6,10 @@ const nprFeed = require('./fetches/rss/npr');
 const cmuFeed = require('./fetches/rss/cmu'); 
 const mechEngineeringNotesFeed= require('./fetches/rss/menotes'); 
 const historyChannelFeed = require('./fetches/rss/historyChannel');
+const nprRssPodcasts = require('./fetches/rss/nprPodcasts')
 require('dotenv').config();
 
-schedule.scheduleJob('05 6 * * *', async () => {
+schedule.scheduleJob('5 6 * * *', async () => {
 
   console.log('Fetching yahoo data -------------------')
   const tslaStockData = await fetchYahooStockTickerData('TSLA')
@@ -19,6 +20,8 @@ schedule.scheduleJob('05 6 * * *', async () => {
   const nprArchitectureStories = await nprFeed(rssConstants.nprCategories.architecture)
   const nprWorldStories = await nprFeed(rssConstants.nprCategories.world)
   const nprTechStories = await nprFeed(rssConstants.nprCategories.tech)
+  const nprPodcasts = await nprRssPodcasts()
+  console.log(nprPodcasts)
 
   console.log('Fetching engineering feed data -------------------')
   const cmuSeiRssFeed = await cmuFeed()
@@ -37,7 +40,8 @@ schedule.scheduleJob('05 6 * * *', async () => {
     nprTechStories,
     cmuSeiRssFeed,
     mechEngRssFeed,
-    histChannelFeed
+    histChannelFeed,
+    nprPodcasts
   }
   const emailSentMessage = await sendEmail(data)
   console.log(emailSentMessage)

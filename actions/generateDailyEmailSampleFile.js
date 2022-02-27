@@ -31,6 +31,26 @@ const EMPTY_RSS_FEED = {
         } 
     ]
 }
+const NPR_PODCASTS = {
+    items: [
+        {
+            title: 'Febuary, 22nd 2022',
+            link: '1082036799', 
+            content: 'Some news of the day.',
+            pubDate: 'Febuary, 22nd 2022 Sunday 12:00:00'
+        },
+        {
+            title: 'Febuary, 22nd 2022',
+            link: '1082036799', 
+            content: 'Some news of the day.'
+        },
+        {
+            title: 'Febuary, 22nd 2022',
+            link: '1082036799', 
+            content: 'Some news of the day.'
+        }
+    ]
+}
 const SAMPLE_DATA = {
     tslaStockData: STOCK_DATA, 
     vtsaxStockData: STOCK_DATA, 
@@ -40,7 +60,8 @@ const SAMPLE_DATA = {
     nprWorldStories: EMPTY_RSS_FEED,
     cmuSeiRssFeed: EMPTY_RSS_FEED,
     mechEngRssFeed: EMPTY_RSS_FEED,
-    histChannelFeed: EMPTY_RSS_FEED
+    histChannelFeed: EMPTY_RSS_FEED,
+    nprPodcasts: NPR_PODCASTS
 }
 const htmlString = renderToDesktopEmailHtml(SAMPLE_DATA)
 fs.writeFile(PREVIEW_LOCATION, htmlString, err => {

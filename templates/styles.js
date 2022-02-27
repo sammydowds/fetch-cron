@@ -3,9 +3,8 @@ import { css } from '@emotion/react'
 // NOTE: good resource for understanding what is accepted for emails: https://www.campaignmonitor.com/css/
 
 export const sectionContainer = css`
-    border: 1px solid gray;
-    border-radius: 5px;
-    margin: 15px 0px;
+    border-top: 1px dashed gray;
+    margin-bottom: 15px;
     padding: 15px;
 `
 
@@ -24,4 +23,15 @@ export const delta = css`
 
 export const ticker = css`
     color: gray; 
+`
+
+export const sectionHeader = css`
+    color: gray;
+    font-size: 10px;
+    margin-bottom: 1px;
+    margin-top: 20px;
+`
+
+export const firstSection = css`
+    margin-top: 40px;
 `

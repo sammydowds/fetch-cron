@@ -10,7 +10,7 @@ const RssNewsArticle = ({ article, sectionTitle }) => {
       <p css={styles.mainContainer}>
         <strong>{article.title}</strong>
         <br></br>
-        <a css={styles.articleLink} href={article.link}>READ MORE &#8599;</a>
+        <a css={styles.articleLink} href={article.link}>Read More &#8599;</a>
       </p>
     </div>
   )
