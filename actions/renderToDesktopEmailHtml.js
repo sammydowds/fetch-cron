@@ -27,7 +27,10 @@ module.exports = (data) => {
                     cmuSeiRssFeed: data.cmuSeiRssFeed,
                     mechEngRssFeed: data.mechEngRssFeed,
                     histChannelFeed: data.histChannelFeed,
-                    nprPodcasts: data.nprPodcasts
+                    nprPodcasts: data.nprPodcasts,
+                    mitMechE: data.mitMechE,
+                    mitUrbanP: data.mitUrbanP,
+                    hackerNews: data.hackerNews
                   }
              )
         )

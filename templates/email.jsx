@@ -12,15 +12,15 @@ export const Email = (data) => {
     <div> 
       <h3 css={styles.sectionHeader}>PODCASTS</h3>
       <div css={styles.sectionContainer}>
-        {upFirst && 
-          <Podcast podcast={upFirst} sectionTitle={`Up First - ${upFirst.title}`} />
-        }
+        <Podcast podcast={data.nprPodcasts.items[0]} sectionTitle={data.nprPodcasts.items[0].title} />
+        <Podcast podcast={data.nprPodcasts.items[1]} sectionTitle={data.nprPodcasts.items[1].title} />
       </div>
 
       <h3 css={styles.sectionHeader}>THIS DAY IN HISTORY</h3>
       <div css={styles.sectionContainer}>
         <RssNewsArticle article={data.histChannelFeed.items[0]} />
         <RssNewsArticle article={data.histChannelFeed.items[1]} />
+        <RssNewsArticle article={data.histChannelFeed.items[2]} />
       </div>
       
       <h3 css={styles.sectionHeader}>STOCKS</h3>
@@ -39,8 +39,10 @@ export const Email = (data) => {
 
       <h3 css={styles.sectionHeader}>ENGINEERING</h3>
       <div css={styles.sectionContainer}>
+        <RssNewsArticle article={data.mitMechE.items[0]} sectionTitle='MIT Mechanical Engineering'/>
+        <RssNewsArticle article={data.mitUrbanP.items[0]} sectionTitle='MIT Urban Planning'/>
+        <RssNewsArticle article={data.hackerNews.items[0]} sectionTitle='Hacker News'/>
         <RssNewsArticle article={data.cmuSeiRssFeed.items[0]} sectionTitle='CMU Software Engineering Insights'/>
-        <RssNewsArticle article={data.mechEngRssFeed.items[0]} sectionTitle='Mechanical Engineering Notes'/>
       </div>
 
     </div>
