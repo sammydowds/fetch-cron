@@ -9,7 +9,7 @@ const historyChannelFeed = require('./fetches/rss/historyChannel');
 const nprRssPodcasts = require('./fetches/rss/nprPodcasts')
 require('dotenv').config();
 
-schedule.scheduleJob('5 6 * * *', async () => {
+schedule.scheduleJob('15 5 * * *', async () => {
 
   console.log('Fetching yahoo data -------------------')
   const tslaStockData = await fetchYahooStockTickerData('TSLA')
