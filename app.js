@@ -31,6 +31,10 @@ schedule.scheduleJob('30 4 * * *', async () => {
   console.log('Fetching history feed data -------------------')
   const histChannelFeed = await rssParser(rssConstants.rssFeeds.historyChannel)
 
+  console.log('Fetching health and fitness feed data -------------------')
+  const nerdFitnessFeed = await rssParser(rssConstants.rssFeeds.nerdFitness)
+  const muscleAndFitnessFeed = await rssParser(rssConstants.rssFeeds.muscleAndFitness)
+
   console.log('Constructing email --------------------')
   const data = { 
     tslaStockData, 
@@ -44,7 +48,9 @@ schedule.scheduleJob('30 4 * * *', async () => {
     mitUrbanP,
     hackerNews,
     histChannelFeed,
-    nprPodcasts
+    nprPodcasts,
+    nerdFitnessFeed,
+    muscleAndFitnessFeed
   }
   const emailSentMessage = await sendEmail(data)
   console.log(emailSentMessage)

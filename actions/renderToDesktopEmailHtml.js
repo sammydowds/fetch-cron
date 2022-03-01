@@ -30,7 +30,9 @@ module.exports = (data) => {
                     nprPodcasts: data.nprPodcasts,
                     mitMechE: data.mitMechE,
                     mitUrbanP: data.mitUrbanP,
-                    hackerNews: data.hackerNews
+                    hackerNews: data.hackerNews,
+                    nerdFitnessFeed: data.nerdFitnessFeed,
+                    muscleAndFitnessFeed: data.muscleAndFitnessFeed
                   }
              )
         )

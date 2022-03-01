@@ -17,6 +17,9 @@ module.exports = {
         mitUrbanPlanning: 'https://news.mit.edu/rss/topic/urban-studies',
         nodeWeekly: 'https://cprss.s3.amazonaws.com/nodeweekly.com.xml',
         nprPodcasts: 'https://feeds.npr.org/510318/podcast.xml',
-        hackerNews: 'https://news.ycombinator.com/rss'
+        hackerNews: 'https://news.ycombinator.com/rss',
+        nerdFitness: 'https://www.nerdfitness.com/blog/feed/',
+        fitBod: 'https://fitbod.me/feed/',
+        muscleAndFitness: 'https://www.muscleandfitness.com/feed/',
     }
 }

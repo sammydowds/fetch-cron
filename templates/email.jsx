@@ -45,6 +45,12 @@ export const Email = (data) => {
         <RssNewsArticle article={data.cmuSeiRssFeed.items[0]} sectionTitle='CMU Software Engineering Insights'/>
       </div>
 
+      <h3 css={styles.sectionHeader}>FITNESS</h3>
+      <div css={styles.sectionContainer}>
+        <RssNewsArticle article={data.nerdFitnessFeed.items[0]} sectionTitle='Nerd Fitness Blog'/>
+        <RssNewsArticle article={data.muscleAndFitnessFeed.items[0]} sectionTitle='Muscle And Fitness Blog'/>
+      </div>
+
     </div>
   )
 }

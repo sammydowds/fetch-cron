@@ -60,8 +60,13 @@ const SAMPLE_DATA = {
     nprWorldStories: EMPTY_RSS_FEED,
     cmuSeiRssFeed: EMPTY_RSS_FEED,
     mechEngRssFeed: EMPTY_RSS_FEED,
+    hackerNews: EMPTY_RSS_FEED,
     histChannelFeed: EMPTY_RSS_FEED,
-    nprPodcasts: NPR_PODCASTS
+    nprPodcasts: NPR_PODCASTS,
+    nerdFitnessFeed: EMPTY_RSS_FEED,
+    mitMechE: EMPTY_RSS_FEED,
+    mitUrbanP: EMPTY_RSS_FEED,
+    muscleAndFitnessFeed: EMPTY_RSS_FEED
 }
 const htmlString = renderToDesktopEmailHtml(SAMPLE_DATA)
 fs.writeFile(PREVIEW_LOCATION, htmlString, err => {

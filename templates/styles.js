@@ -22,7 +22,10 @@ export const delta = css`
 `
 
 export const ticker = css`
-    color: gray; 
+`
+
+export const price = css`
+    font-size: 14px;
 `
 
 export const sectionHeader = css`
