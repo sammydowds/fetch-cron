@@ -3,12 +3,12 @@ const sendEmail = require('./actions/sendEmail');
 const fetchYahooStockTickerData = require('./fetches/fetchYahooStockTickerData');
 const rssConstants = require('./fetches/rss/constants')
 const nprFeed = require('./fetches/rss/npr'); 
-const cmuFeed = require('./fetches/rss/cmu'); 
-const mechEngineeringNotesFeed= require('./fetches/rss/menotes'); 
-const historyChannelFeed = require('./fetches/rss/historyChannel');
+const rssParser = require('./fetches/rss/rssParser')
 require('dotenv').config();
 
-schedule.scheduleJob('23 8 * * *', async () => {
+schedule.scheduleJob('30 4 * * *', async () => {
+
+  // TODO: split up and read a book - https://pdf-lib.js.org/
 
   console.log('Fetching yahoo data -------------------')
   const tslaStockData = await fetchYahooStockTickerData('TSLA')
@@ -19,13 +19,21 @@ schedule.scheduleJob('23 8 * * *', async () => {
   const nprArchitectureStories = await nprFeed(rssConstants.nprCategories.architecture)
   const nprWorldStories = await nprFeed(rssConstants.nprCategories.world)
   const nprTechStories = await nprFeed(rssConstants.nprCategories.tech)
+  const nprPodcasts = await rssParser(rssConstants.rssFeeds.nprPodcasts)
+  console.log(nprPodcasts)
 
   console.log('Fetching engineering feed data -------------------')
-  const cmuSeiRssFeed = await cmuFeed()
-  const mechEngRssFeed = await mechEngineeringNotesFeed()
+  const cmuSeiRssFeed = await rssParser(rssConstants.rssFeeds.cmu)
+  const mitMechE = await rssParser(rssConstants.rssFeeds.mitMechanicalEngineering)
+  const mitUrbanP = await rssParser(rssConstants.rssFeeds.mitUrbanPlanning)
+  const hackerNews = await rssParser(rssConstants.rssFeeds.hackerNews)
 
   console.log('Fetching history feed data -------------------')
-  const histChannelFeed = await historyChannelFeed()
+  const histChannelFeed = await rssParser(rssConstants.rssFeeds.historyChannel)
+
+  console.log('Fetching health and fitness feed data -------------------')
+  const nerdFitnessFeed = await rssParser(rssConstants.rssFeeds.nerdFitness)
+  const muscleAndFitnessFeed = await rssParser(rssConstants.rssFeeds.muscleAndFitness)
 
   console.log('Constructing email --------------------')
   const data = { 
@@ -36,8 +44,13 @@ schedule.scheduleJob('23 8 * * *', async () => {
     nprWorldStories,
     nprTechStories,
     cmuSeiRssFeed,
-    mechEngRssFeed,
-    histChannelFeed
+    mitMechE,
+    mitUrbanP,
+    hackerNews,
+    histChannelFeed,
+    nprPodcasts,
+    nerdFitnessFeed,
+    muscleAndFitnessFeed
   }
   const emailSentMessage = await sendEmail(data)
   console.log(emailSentMessage)

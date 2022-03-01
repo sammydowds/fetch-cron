@@ -6,7 +6,8 @@
   "scripts": {
     "build": "babel templates --out-dir lib",
     "start": "npm install && babel templates --out-dir lib && node app.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "preview": "babel templates --out-dir lib && node actions/generateDailyEmailSampleFile.js && open $(grep PREVIEW_LOCATION .env | cut -d '=' -f2)"
   },
   "author": "",
   "license": "ISC",
@@ -14,9 +15,12 @@
     "@babel/cli": "^7.17.3",
     "@babel/preset-env": "^7.16.11",
     "@babel/preset-react": "^7.16.7",
+    "@emotion/css": "^11.7.1",
+    "@emotion/react": "^11.8.1",
+    "@emotion/server": "^11.4.0",
+    "@sendgrid/mail": "^7.6.1",
     "dotenv": "^16.0.0",
     "node-schedule": "^2.1.0",
-    "nodemailer": "^6.7.2",
     "react-dom": "^17.0.2",
     "rss-parser": "^3.12.0"
   }
