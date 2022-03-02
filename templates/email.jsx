@@ -5,9 +5,9 @@ import Stock from './Stock'
 import RssNewsArticle from './RssNewsArticle'
 import Podcast from './Podcast'
 import * as styles from './styles'
+import Newspaper from './Newspaper/Newspaper'
 
 export const Email = (data) => {
-  let upFirst = data.nprPodcasts.items.filter((podcast) => podcast.link.includes('1082036799'))[0]
   return (
     <div> 
       <h3 css={styles.sectionHeader}>PODCASTS</h3>
@@ -50,6 +50,8 @@ export const Email = (data) => {
         <RssNewsArticle article={data.nerdFitnessFeed.items[0]} sectionTitle='Nerd Fitness Blog'/>
         <RssNewsArticle article={data.muscleAndFitnessFeed.items[0]} sectionTitle='Muscle And Fitness Blog'/>
       </div>
+
+      <Newspaper />
 
     </div>
   )
