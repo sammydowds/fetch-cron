@@ -2,10 +2,7 @@
 import { jsx } from '@emotion/react'
 import React from 'react'
 
-const articleContainer = {
-}
-
-const Article = ({ title, summary, link }) => {
+const LargeArticle = ({ title, summary, link }) => {
   return (
     <React.Fragment>
         <h2>{title}</h2>
@@ -15,4 +12,4 @@ const Article = ({ title, summary, link }) => {
   )
 }
 
-export default Article
+export default LargeArticle

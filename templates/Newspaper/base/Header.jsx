@@ -3,7 +3,7 @@ import { jsx } from '@emotion/react'
 
 const container = {
     width: '100%',
-    borderBottom: '1px solid black'
+    borderBottom: '1px solid lightgray'
 }
 
 const Header = (props) => {
