@@ -6,7 +6,7 @@ const LargeArticle = ({ title, summary, link }) => {
   return (
     <React.Fragment>
         <h2>{title}</h2>
-        <p>{summary}</p>
+        <p dangerouslySetInnerHTML={{__html: summary}} />
         <a href={link}>Read More</a>
     </React.Fragment>
   )

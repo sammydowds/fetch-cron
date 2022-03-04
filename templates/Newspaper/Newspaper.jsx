@@ -7,17 +7,37 @@ import Footer from './base/Footer'
 import Headline from './base/Headline'
 import Rail from './base/Rail'
 
-const Newspaper = () => {
+export const Newspaper = (data) => {
   return (
     <Paper>
         <Header />
-        <Headline />
-        <ThreeArticleSection />
-        <Rail />
-        <ThreeArticleSection />
+        <Headline article={data.nprTopStories.items[0]} />
+        <ThreeArticleSection 
+          articles={
+            [
+              data.nprWorldStories.items[0], 
+              data.nprArchitectureStories.items[0], 
+              data.nprTechStories.items[0]
+            ]
+          } 
+        />
+        <Rail 
+          largeRailArticles={
+            [
+              data.histChannelFeed.items[0]
+            ]
+          } 
+        />
+        <ThreeArticleSection 
+          articles={
+            [
+              data.muscleAndFitnessFeed.items[0],
+              data.mitMechE.items[0],
+              data.hackerNews.items[0]
+            ]
+          } 
+        />
         <Footer />
     </Paper>
   )
 }
-
-export default Newspaper

@@ -6,7 +6,7 @@ const nprFeed = require('./fetches/rss/npr');
 const rssParser = require('./fetches/rss/rssParser')
 require('dotenv').config();
 
-schedule.scheduleJob('30 4 * * *', async () => {
+schedule.scheduleJob('5 4 * * *', async () => {
 
   // TODO: split up and read a book - https://pdf-lib.js.org/
 

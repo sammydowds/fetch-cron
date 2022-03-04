@@ -51,7 +51,7 @@ export const Email = (data) => {
         <RssNewsArticle article={data.muscleAndFitnessFeed.items[0]} sectionTitle='Muscle And Fitness Blog'/>
       </div>
 
-      <Newspaper />
+      <Newspaper data={data} />
 
     </div>
   )

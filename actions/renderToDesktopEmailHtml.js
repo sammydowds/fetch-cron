@@ -2,7 +2,7 @@ const CacheProvider = require('@emotion/react').CacheProvider
 const renderToString = require('react-dom/server').renderToString
 const createEmotionServer = require('@emotion/server/create-instance').default
 const createCache = require('@emotion/cache').default
-const Email = require('../lib/email').Email
+const Newspaper = require('../lib/Newspaper/Newspaper').Newspaper
 const React = require('react')
 
 // NOTE: web versions of gmail may not be compatible  
@@ -16,7 +16,7 @@ module.exports = (data) => {
         React.createElement(
             CacheProvider,
             {value: cache},
-            Email(
+            Newspaper(
                 { 
                     tslaData: data.tslaStockData, 
                     vtsaxData: data.vtsaxStockData, 

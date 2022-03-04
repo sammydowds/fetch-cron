@@ -1,7 +1,7 @@
 /** @jsx jsx */
 import { jsx } from '@emotion/react'
 import ExampleLargeArticle from '../examples/ExampleLargeArticle'
-import ExampleArticle from '../examples/ExampleArticle'
+import LargeArticle from './LargeArticle'
 
 const container = {
     width: '100%',
@@ -27,38 +27,39 @@ const smallRailItem = {
 
 const largeRailItem = {
     minHeight: 200,
-    padding: '10px 40px'
+    padding: '10px 40px',
+    maxWidth: 800
 }
 
-const Rail = (props) => {
-  return (
-    <tr>
-        <td style={container}>
-            <div style={largeRailContainer}>
-                <div css={largeRailItem}>
-                    <ExampleLargeArticle />
+const Rail = ({ largeRailArticles }) => {
+    // TODO: expand content beyond history channel
+    const article = largeRailArticles[0]
+    return (
+        <tr>
+            <td style={container}>
+                <div style={largeRailContainer}>
+                    <div key={article.title} css={largeRailItem}>
+                        <LargeArticle 
+                            title={article.title}
+                            summary={article['content:encoded']}
+                            link={article.link}
+                        />
+                    </div>
                 </div>
-                <div css={largeRailItem}>
-                    <ExampleLargeArticle />
+                <div style={smallRailContainer}>
+                    <div css={smallRailItem}>
+                        <p>Something here</p>
+                    </div>
+                    <div css={smallRailItem}>
+                        <p>Something here</p>
+                    </div>
+                    <div css={smallRailItem}>
+                        <p>Something here</p>
+                    </div>
                 </div>
-                <div css={largeRailItem}>
-                    <ExampleLargeArticle />
-                </div>
-            </div>
-            <div style={smallRailContainer}>
-                <div css={smallRailItem}>
-                    <p>Something here</p>
-                </div>
-                <div css={smallRailItem}>
-                    <p>Something here</p>
-                </div>
-                <div css={smallRailItem}>
-                    <p>Something here</p>
-                </div>
-            </div>
-        </td>
-    </tr>
-  )
+            </td>
+        </tr>
+    )
 }
 
 export default Rail
