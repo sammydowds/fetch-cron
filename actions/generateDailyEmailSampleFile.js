@@ -10,23 +10,23 @@ const STOCK_DATA = processStockSummaryDetail(stockSummary)
 const EMPTY_RSS_FEED = { 
     items: [ 
         { 
-            title: 'Some Title', 
-            content: 'Some content', 
+            title: 'Today is another day to rock with it, and be kind to each other', 
+            content: 'Some times you need to take a second and realize how awesome you are. Super vital to do.', 
             link: '/' 
         }, 
         { 
-            title: 'Some Title', 
-            content: 'Some content', 
+            title: 'Today the sun is rising', 
+            content: 'As everyone does their Wordle this morning, we look back on the best things in 2022.', 
             link: '/' 
         },
         { 
-            title: 'Some Title', 
-            content: 'Some content', 
+            title: 'Super long title to test the data out and make sure our styles are correct', 
+            content: 'Another day of doing too much coding is on the horizon. Time to build and learn!', 
             link: '/' 
         },
         { 
-            title: 'Some Title', 
-            content: 'Some content', 
+            title: 'Ugh, another fake title for testing styles', 
+            content: 'I am running out of fake content and ideas for fake content. Here is some content.', 
             link: '/' 
         } 
     ]

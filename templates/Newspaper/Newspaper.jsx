@@ -1,6 +1,7 @@
 /** @jsx jsx */
 import { jsx } from '@emotion/react'
 import ThreeArticleSection from './base/ThreeArticleSection'
+import FourArticleSection from './base/FourArticleSection'
 import Paper from './base/Paper'
 import Header from './base/Header'
 import Footer from './base/Footer'
@@ -12,30 +13,51 @@ export const Newspaper = (data) => {
     <Paper>
         <Header />
         <Headline article={data.nprTopStories.items[0]} />
-        <ThreeArticleSection 
+        <FourArticleSection 
           articles={
             [
-              data.nprWorldStories.items[0], 
-              data.nprArchitectureStories.items[0], 
-              data.nprTechStories.items[0]
+              { ...data.nprTopStories.items[1], sectionTitle: 'NPR Top Story' },
+              { ...data.nprTopStories.items[2], sectionTitle: 'NPR Top Story'},
+              { ...data.nprTopStories.items[3], sectionTitle: 'NPR Top Story'},
+              { ...data.nprTopStories.items[4], sectionTitle: 'NPR Top Story'}
             ]
           } 
         />
         <Rail 
           largeRailArticles={
             [
-              data.histChannelFeed.items[0]
+              { ...data.histChannelFeed.items[0], sectionTitle: 'This Day In History' }
             ]
           } 
         />
         <ThreeArticleSection 
           articles={
             [
-              data.muscleAndFitnessFeed.items[0],
-              data.mitMechE.items[0],
-              data.hackerNews.items[0]
+              { ...data.nprWorldStories.items[0], sectionTitle: 'NPR World News' },
+              { ...data.nprArchitectureStories.items[0], sectionTitle: 'NPR Architecture'},
+              { ...data.nprTechStories.items[0], sectionTitle: 'NPR Tech'}
             ]
           } 
+        />
+        <FourArticleSection 
+          articles={
+            [
+              { ...data.cmuSeiRssFeed.items[0], sectionTitle: 'CMU software' },
+              { ...data.mitMechE.items[0], sectionTitle: 'MIT Mech E' },
+              { ...data.hackerNews.items[0], sectionTitle: 'Hacker News' },
+              { ...data.hackerNews.items[1], sectionTitle: 'Hacker News' }
+            ]
+          } 
+        />
+        <ThreeArticleSection 
+          articles={
+            [
+              { ...data.muscleAndFitnessFeed.items[0], sectionTitle: 'Muscle and Fitness' },
+              { ...data.mitMechE.items[0], sectionTitle: 'MIT Mech E' },
+              { ...data.nerdFitnessFeed.items[0], sectionTitle: 'Nerd Fitness' }
+            ]
+          } 
+          isLastSection
         />
         <Footer />
     </Paper>

@@ -3,7 +3,7 @@ import { jsx } from '@emotion/react'
 
 const container = {
     width: '100%',
-    borderTop: '1px solid lightgray'
+    borderTop: '1px solid lightgray',
 }
 
 const Footer = (props) => {

@@ -43,6 +43,7 @@ const Rail = ({ largeRailArticles }) => {
                             title={article.title}
                             summary={article['content:encoded']}
                             link={article.link}
+                            sectionTitle={article.sectionTitle}
                         />
                     </div>
                 </div>

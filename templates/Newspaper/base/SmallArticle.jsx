@@ -8,18 +8,22 @@ const sectionTitleText = {
 }
 
 const header = {
-  marginTop: 5
+  marginTop: 5,
+  fontSize: '14px'
 }
 
-const Article = ({ sectionTitle, title, summary, link }) => {
+const linkStyle = {
+  fontSize: '14px'
+}
+
+const SmallArticle = ({ sectionTitle, title, link }) => {
   return (
     <React.Fragment>
         {sectionTitle && <span style={sectionTitleText}>{sectionTitle}</span>}
         <h2 style={header}>{title}</h2>
-        <p>{summary.split('<')[0]}</p>
-        <a href={link}>Read More</a>
+        <a style={linkStyle} href={link}>Read More</a>
     </React.Fragment>
   )
 }
 
-export default Article
+export default SmallArticle
