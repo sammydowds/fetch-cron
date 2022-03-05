@@ -15,6 +15,8 @@ module.exports = (data) => {
     return new Promise((resolve, reject) => {
         sgMail.send(msg, function(err) {
             if (err) {
+              console.log('ERROR HERE: ', err)
+              console.log('Error body', err.response.body)
               reject("Email was not sent", err)
             } else {
               resolve("Email was sent successfully")

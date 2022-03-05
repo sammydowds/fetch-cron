@@ -8,6 +8,9 @@ import Footer from './base/Footer'
 import Headline from './base/Headline'
 import Rail from './base/Rail'
 
+// TODO: create indicators for daily throughput of
+// tsa checkpoints, hotel occupancy, box office movie sales (box office mojo), resturant (open table data), public transport (apple)
+
 export const Newspaper = (data) => {
   return (
     <Paper>
@@ -28,16 +31,15 @@ export const Newspaper = (data) => {
             [
               { ...data.histChannelFeed.items[0], sectionTitle: 'This Day In History' }
             ]
-          } 
-        />
-        <ThreeArticleSection 
-          articles={
-            [
-              { ...data.nprWorldStories.items[0], sectionTitle: 'NPR World News' },
-              { ...data.nprArchitectureStories.items[0], sectionTitle: 'NPR Architecture'},
-              { ...data.nprTechStories.items[0], sectionTitle: 'NPR Tech'}
+          }
+          stockData={data.processedPolygonGroupData}
+          weatherData={
+            [ 
+              { ...data.chicagoWeatherData, city: 'Chicago' }, 
+              { ...data.okcWeatherData, city: 'OKC'},
+              { ...data.lasVegasWeatherData, city: 'Las Vegas'},
             ]
-          } 
+          }
         />
         <FourArticleSection 
           articles={
@@ -52,9 +54,9 @@ export const Newspaper = (data) => {
         <ThreeArticleSection 
           articles={
             [
-              { ...data.muscleAndFitnessFeed.items[0], sectionTitle: 'Muscle and Fitness' },
-              { ...data.mitMechE.items[0], sectionTitle: 'MIT Mech E' },
-              { ...data.nerdFitnessFeed.items[0], sectionTitle: 'Nerd Fitness' }
+              { ...data.nprWorldStories.items[0], sectionTitle: 'NPR World News' },
+              { ...data.nprArchitectureStories.items[0], sectionTitle: 'NPR Architecture'},
+              { ...data.nprTechStories.items[0], sectionTitle: 'NPR Tech'}
             ]
           } 
           isLastSection

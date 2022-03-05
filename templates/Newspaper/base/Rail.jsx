@@ -1,7 +1,8 @@
 /** @jsx jsx */
 import { jsx } from '@emotion/react'
-import ExampleLargeArticle from '../examples/ExampleLargeArticle'
+import Forecast from './Forecast'
 import LargeArticle from './LargeArticle'
+import Stock from './Stock'
 
 const container = {
     width: '100%',
@@ -10,52 +11,102 @@ const container = {
 
 const smallRailContainer = {
     verticalAlign: 'top',
-    display: 'inline-block'
+    display: 'inline-block',
 }
 
 const largeRailContainer = {
-    minWidth: '70%',
-    padding: 10,
-    borderRight: '1px solid lightgray',
-    display: 'inline-block'
+    borderLeft: '1px solid lightgray',
+    display: 'inline-block',
+    width: '90%'
 }
 
 const smallRailItem = {
-    padding: 20,
-    width: '100%'
+    padding: '5px 15px 5px 30px',
 }
 
 const largeRailItem = {
     minHeight: 200,
     padding: '10px 40px',
-    maxWidth: 800
 }
 
-const Rail = ({ largeRailArticles }) => {
+const Rail = ({ largeRailArticles, stockData, weatherData }) => {
     // TODO: expand content beyond history channel
+    console.log(weatherData)
     const article = largeRailArticles[0]
+    const tslaStockData = stockData['TSLA']
+    const vtsaxStockData = stockData['VTSAX']
+    const appleStockData = stockData['AAPL']
+    const dollarTreeStockData = stockData['DLTR']
     return (
         <tr>
             <td style={container}>
-                <div style={largeRailContainer}>
-                    <div key={article.title} css={largeRailItem}>
+                <div style={smallRailContainer}>
+                    {vtsaxStockData && 
+                        <div css={smallRailItem}> 
+                            <Stock 
+                                previousClose={vtsaxStockData?.c} 
+                                average={vtsaxStockData?.vw}
+                                ticker='VTSAX'
+                            />
+                        </div>
+                    }
+                    {tslaStockData && 
+                        <div css={smallRailItem}> 
+                            <Stock 
+                                previousClose={tslaStockData?.c} 
+                                average={tslaStockData?.vw}
+                                ticker='TSLA'
+                            />
+                        </div>
+                    }
+                    {dollarTreeStockData && 
+                        <div css={smallRailItem}> 
+                            <Stock 
+                                previousClose={dollarTreeStockData?.c} 
+                                average={dollarTreeStockData?.vw}
+                                ticker='DLTR'
+                            />
+                        </div>
+                    }
+                    {appleStockData && 
+                        <div css={smallRailItem}> 
+                            <Stock 
+                                previousClose={appleStockData?.c} 
+                                average={appleStockData?.vw}
+                                ticker='AAPL'
+                            />
+                        </div>
+                    }
+                    {weatherData[0] && 
+                        <div css={smallRailItem}> 
+                            <Forecast
+                                data={weatherData[0]}
+                            />
+                        </div>
+                    }
+                    {weatherData[1] && 
+                        <div css={smallRailItem}> 
+                            <Forecast
+                                data={weatherData[1]}
+                            />
+                        </div>
+                    }
+                    {weatherData[2] && 
+                        <div css={smallRailItem}> 
+                            <Forecast
+                                data={weatherData[2]}
+                            />
+                        </div>
+                    }
+                </div>
+                <div align='center' style={largeRailContainer}>
+                    <div align='left' key={article.title} css={largeRailItem}>
                         <LargeArticle 
                             title={article.title}
                             summary={article['content:encoded']}
                             link={article.link}
                             sectionTitle={article.sectionTitle}
                         />
-                    </div>
-                </div>
-                <div style={smallRailContainer}>
-                    <div css={smallRailItem}>
-                        <p>Something here</p>
-                    </div>
-                    <div css={smallRailItem}>
-                        <p>Something here</p>
-                    </div>
-                    <div css={smallRailItem}>
-                        <p>Something here</p>
                     </div>
                 </div>
             </td>

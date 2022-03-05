@@ -18,8 +18,10 @@ module.exports = (data) => {
             {value: cache},
             Newspaper(
                 { 
-                    tslaData: data.tslaStockData, 
-                    vtsaxData: data.vtsaxStockData, 
+                    chicagoWeatherData: data.chicagoWeatherData,
+                    okcWeatherData: data.okcWeatherData,
+                    lasVegasWeatherData: data.lasVegasWeatherData,
+                    processedPolygonGroupData: data.processedPolygonGroupData, 
                     nprTopStories: data.nprTopStories,
                     nprArchitectureStories: data.nprArchitectureStories,
                     nprTechStories: data.nprTechStories,

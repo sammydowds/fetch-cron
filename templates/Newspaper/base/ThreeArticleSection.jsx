@@ -17,7 +17,7 @@ const lastSectionContainer = {
 const articleContainer = {
     display: 'inline-block',
     padding: 20,
-    width: '30%',
+    width: '28%',
     textAlign: 'left',
     verticalAlign: 'top'
 }
