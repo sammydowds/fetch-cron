@@ -13,7 +13,7 @@ const CHICAGO_LAT_LONG = [41.85, -87.65]
 const OKC_LAT_LONG = [35.4676,-97.5164]
 const LV_LAT_LONG = [36.1699,-115.1398]
 
-schedule.scheduleJob('42 13 * * *', async () => {
+schedule.scheduleJob('5 4 * * *', async () => {
 
   const currentDate = new Date();
   const pastDate = new Date(currentDate);
