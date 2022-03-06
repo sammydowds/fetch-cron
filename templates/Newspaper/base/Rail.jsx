@@ -7,6 +7,7 @@ import Stock from './Stock'
 const container = {
     width: '100%',
     background: 'white',
+    position: 'relative'
 }
 
 const smallRailContainer = {
@@ -17,7 +18,8 @@ const smallRailContainer = {
 const largeRailContainer = {
     borderLeft: '1px solid lightgray',
     display: 'inline-block',
-    width: '90%'
+    maxWidth: '90%',
+    position: 'absolute'
 }
 
 const smallRailItem = {
@@ -45,7 +47,7 @@ const Rail = ({ largeRailArticles, stockData, weatherData }) => {
                         <div css={smallRailItem}> 
                             <Stock 
                                 previousClose={vtsaxStockData?.c} 
-                                average={vtsaxStockData?.vw}
+                                open={vtsaxStockData?.o}
                                 ticker='VTSAX'
                             />
                         </div>
@@ -54,7 +56,7 @@ const Rail = ({ largeRailArticles, stockData, weatherData }) => {
                         <div css={smallRailItem}> 
                             <Stock 
                                 previousClose={tslaStockData?.c} 
-                                average={tslaStockData?.vw}
+                                open={tslaStockData?.o}
                                 ticker='TSLA'
                             />
                         </div>
@@ -63,7 +65,7 @@ const Rail = ({ largeRailArticles, stockData, weatherData }) => {
                         <div css={smallRailItem}> 
                             <Stock 
                                 previousClose={dollarTreeStockData?.c} 
-                                average={dollarTreeStockData?.vw}
+                                open={dollarTreeStockData?.o}
                                 ticker='DLTR'
                             />
                         </div>
@@ -72,7 +74,7 @@ const Rail = ({ largeRailArticles, stockData, weatherData }) => {
                         <div css={smallRailItem}> 
                             <Stock 
                                 previousClose={appleStockData?.c} 
-                                average={appleStockData?.vw}
+                                open={appleStockData?.o}
                                 ticker='AAPL'
                             />
                         </div>

@@ -13,13 +13,14 @@ const CHICAGO_LAT_LONG = [41.85, -87.65]
 const OKC_LAT_LONG = [35.4676,-97.5164]
 const LV_LAT_LONG = [36.1699,-115.1398]
 
-schedule.scheduleJob('5 4 * * *', async () => {
+schedule.scheduleJob('15 6 * * *', async () => {
 
   const currentDate = new Date();
   const pastDate = new Date(currentDate);
 
-  // set past date to be 200 days ago
-  pastDate.setDate(pastDate.getDate() - pastDate.getDay() % 5)
+  // calc day for polygon stock request
+  const weekendOffset = pastDate.getDay() !== 0 ? pastDate.getDay() % 5 : 2
+  pastDate.setDate(pastDate.getDate() - weekendOffset)
   const formattedDate = pastDate.toISOString().replace(/T.*/,'').split('-').join('-')
   console.log('FORMATTED DATE', formattedDate)
 

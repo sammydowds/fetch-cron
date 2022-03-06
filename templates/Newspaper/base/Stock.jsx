@@ -3,9 +3,9 @@ import { jsx } from '@emotion/react'
 import * as styles from './styles'
 import React from 'react'
 
-const Stock = ({ ticker, previousClose, average}) => {
-  const isUp = average < previousClose
-  const percentChange = Math.round(100 * (previousClose - average)/average)
+const Stock = ({ ticker, previousClose, open}) => {
+  const isUp = open < previousClose
+  const percentChange = Math.round(10 * 100 * (previousClose - open)/(open))/10
   return (
       <p css={styles.stockContainer}>
         <strong css={styles.ticker}>
