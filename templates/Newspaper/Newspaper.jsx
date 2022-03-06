@@ -37,7 +37,7 @@ export const Newspaper = (data) => {
             [ 
               { ...data.chicagoWeatherData, city: 'Chicago' }, 
               { ...data.okcWeatherData, city: 'OKC'},
-              { ...data.lasVegasWeatherData, city: 'Las Vegas'},
+              { ...data.lasVegasWeatherData, city: 'Vegas'},
             ]
           }
         />

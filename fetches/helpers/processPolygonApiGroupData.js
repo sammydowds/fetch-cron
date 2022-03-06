@@ -1,6 +1,5 @@
 
 module.exports = (polygonGroupResponse, tickers) => {
-    console.log('GROUP RESPONSE', polygonGroupResponse)
     let processedData = {}
     for (let dataObject of polygonGroupResponse.results) {
         console.log(dataObject)

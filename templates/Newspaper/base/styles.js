@@ -38,7 +38,6 @@ export const forecastCity = css`
 export const highTemp = css`
     font-size: 12px;
     font-weight: lighter;
-    margin-left: 5px;
     color: #C75000;
 `
 
@@ -48,7 +47,12 @@ export const lowTemp = css`
     color: #1C0080;
 `
 
-export const forecastDescr = css`
-    font-size: 10px;
-    font-weight: lighter;
+export const forecastIcon = css`
+    height: 8px;
+    width: 8px;
+`
+
+export const noSpacing = css`
+    margin: 0px;
+    padding: 0px;
 `

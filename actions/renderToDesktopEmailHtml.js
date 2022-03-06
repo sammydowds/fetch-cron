@@ -6,7 +6,6 @@ const Newspaper = require('../lib/Newspaper/Newspaper').Newspaper
 const React = require('react')
 
 // NOTE: web versions of gmail may not be compatible  
-
 module.exports = (data) => {
     const key = 'custom'
     const cache = createCache({ key })
