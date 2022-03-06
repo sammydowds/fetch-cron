@@ -4,31 +4,33 @@ import Forecast from './Forecast'
 import LargeArticle from './LargeArticle'
 import Stock from './Stock'
 
-const container = {
+const smallRail = {
+    width: '15%'
+}
+
+const largeRail = {
+    width: '85%',
+    borderLeft: '1px solid lightgray'
+}
+
+const railTable = {
+    width: '100%'
+}
+
+const smallRailTable = {
     width: '100%',
-    background: 'white',
+}
+
+const newspaperTd = {
     position: 'relative'
 }
 
-const smallRailContainer = {
-    verticalAlign: 'top',
-    display: 'inline-block',
+const laregRailTd = {
+    padding: 10
 }
 
-const largeRailContainer = {
-    borderLeft: '1px solid lightgray',
-    display: 'inline-block',
-    maxWidth: '90%',
-    position: 'absolute'
-}
-
-const smallRailItem = {
-    padding: '5px 15px 5px 30px',
-}
-
-const largeRailItem = {
-    minHeight: 200,
-    padding: '10px 40px',
+const smallRailTd = {
+    padding: '0px 5px'
 }
 
 const Rail = ({ largeRailArticles, stockData, weatherData }) => {
@@ -36,81 +38,81 @@ const Rail = ({ largeRailArticles, stockData, weatherData }) => {
     console.log(weatherData)
     const article = largeRailArticles[0]
     const tslaStockData = stockData['TSLA']
-    const vtsaxStockData = stockData['VTSAX']
     const appleStockData = stockData['AAPL']
     const dollarTreeStockData = stockData['DLTR']
     return (
         <tr>
-            <td style={container}>
-                <div style={smallRailContainer}>
-                    {vtsaxStockData && 
-                        <div css={smallRailItem}> 
-                            <Stock 
-                                previousClose={vtsaxStockData?.c} 
-                                open={vtsaxStockData?.o}
-                                ticker='VTSAX'
-                            />
-                        </div>
-                    }
-                    {tslaStockData && 
-                        <div css={smallRailItem}> 
-                            <Stock 
-                                previousClose={tslaStockData?.c} 
-                                open={tslaStockData?.o}
-                                ticker='TSLA'
-                            />
-                        </div>
-                    }
-                    {dollarTreeStockData && 
-                        <div css={smallRailItem}> 
-                            <Stock 
-                                previousClose={dollarTreeStockData?.c} 
-                                open={dollarTreeStockData?.o}
-                                ticker='DLTR'
-                            />
-                        </div>
-                    }
-                    {appleStockData && 
-                        <div css={smallRailItem}> 
-                            <Stock 
-                                previousClose={appleStockData?.c} 
-                                open={appleStockData?.o}
-                                ticker='AAPL'
-                            />
-                        </div>
-                    }
-                    {weatherData[0] && 
-                        <div css={smallRailItem}> 
-                            <Forecast
-                                data={weatherData[0]}
-                            />
-                        </div>
-                    }
-                    {weatherData[1] && 
-                        <div css={smallRailItem}> 
-                            <Forecast
-                                data={weatherData[1]}
-                            />
-                        </div>
-                    }
-                    {weatherData[2] && 
-                        <div css={smallRailItem}> 
-                            <Forecast
-                                data={weatherData[2]}
-                            />
-                        </div>
-                    }
-                </div>
-                <div align='center' style={largeRailContainer}>
-                    <div align='left' key={article.title} css={largeRailItem}>
-                        <LargeArticle 
-                            title={article.title}
-                            summary={article['content:encoded']}
-                            link={article.link}
-                            sectionTitle={article.sectionTitle}
-                        />
-                    </div>
-                </div>
+            <td style={newspaperTd}>
+                <table style={railTable}>
+                    <tr>
+                        <td valign='top' align='center' style={smallRail}>
+                            <table style={smallRailTable}>
+                                { tslaStockData && appleStockData && 
+                                    <tr valign='top'>
+                                        <td style={smallRailTd}>
+                                            <Stock 
+                                                previousClose={tslaStockData?.c} 
+                                                open={tslaStockData?.o}
+                                                ticker='VTSAX'
+                                            />
+                                        </td>
+                                        <td style={smallRailTd}>
+                                            <Stock 
+                                                previousClose={appleStockData?.c} 
+                                                open={appleStockData?.o}
+                                                ticker='APPLE'
+                                            />
+                                        </td>
+                                    </tr>
+                                }
+                                { dollarTreeStockData && weatherData[0] && 
+                                    <tr valign='top'>
+                                        <td style={smallRailTd}>
+                                            <Stock 
+                                                previousClose={dollarTreeStockData?.c} 
+                                                open={dollarTreeStockData?.o}
+                                                ticker='DLTR'
+                                            />
+                                        </td>
+                                        <td style={smallRailTd}>
+                                            <Forecast
+                                                data={weatherData[0]}
+                                            />
+                                        </td>
+                                    </tr>
+                                }
+                                { weatherData[1] && weatherData[2] && 
+                                    <tr valign='top'>
+                                        <td style={smallRailTd}>
+                                            <Forecast
+                                                data={weatherData[1]}
+                                            />
+                                        </td>
+                                        <td style={smallRailTd}>
+                                            <Forecast
+                                                data={weatherData[2]}
+                                            />
+                                        </td>
+                                    </tr>
+                                }
+                            </table>
+                        </td>
+                        <td align='center' style={largeRail}>
+                            <table>
+                                <tr>
+                                    <td style={laregRailTd}>
+                                        <LargeArticle 
+                                            title={article.title}
+                                            summary={article['content:encoded']}
+                                            link={article.link}
+                                            sectionTitle={article.sectionTitle}
+                                        />
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
             </td>
         </tr>
     )
