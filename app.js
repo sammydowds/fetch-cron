@@ -1,18 +1,39 @@
 const schedule = require('node-schedule');
 const sendEmail = require('./actions/sendEmail');
-const fetchYahooStockTickerData = require('./fetches/fetchYahooStockTickerData');
+const processPolygonApiGroupData = require('./fetches/helpers/processPolygonApiGroupData')
+const fetchPolygonStockData = require('./fetches/fetchPolygonStockData')
 const rssConstants = require('./fetches/rss/constants')
 const nprFeed = require('./fetches/rss/npr'); 
 const rssParser = require('./fetches/rss/rssParser')
+const stocks = require('./fetches/stocks');
+const fetchOpenWeatherForecastData = require('./fetches/fetchOpenWeatherForecastData');
 require('dotenv').config();
 
-schedule.scheduleJob('30 4 * * *', async () => {
+const CHICAGO_LAT_LONG = [41.85, -87.65]
+const OKC_LAT_LONG = [35.4676,-97.5164]
+const LV_LAT_LONG = [36.1699,-115.1398]
+
+schedule.scheduleJob('15 6 * * *', async () => {
+
+  const currentDate = new Date();
+  const pastDate = new Date(currentDate);
+
+  // calc day for polygon stock request
+  const weekendOffset = pastDate.getDay() !== 0 ? pastDate.getDay() % 5 : 2
+  pastDate.setDate(pastDate.getDate() - weekendOffset)
+  const formattedDate = pastDate.toISOString().replace(/T.*/,'').split('-').join('-')
+  console.log('FORMATTED DATE', formattedDate)
 
   // TODO: split up and read a book - https://pdf-lib.js.org/
 
+  console.log('Fetching weather data ------------------')
+  const chicagoWeatherData = await fetchOpenWeatherForecastData(CHICAGO_LAT_LONG[0], CHICAGO_LAT_LONG[1], 2)
+  const okcWeatherData = await fetchOpenWeatherForecastData(OKC_LAT_LONG[0], OKC_LAT_LONG[1], 2)
+  const lasVegasWeatherData = await fetchOpenWeatherForecastData(LV_LAT_LONG[0], LV_LAT_LONG[1], 2)
+
   console.log('Fetching yahoo data -------------------')
-  const tslaStockData = await fetchYahooStockTickerData('TSLA')
-  const vtsaxStockData = await fetchYahooStockTickerData('VTSAX')
+  const polygonStockData = await fetchPolygonStockData(formattedDate)
+  const processedPolygonGroupData = processPolygonApiGroupData(polygonStockData, stocks)
 
   console.log('Fetching npr data -------------------')
   const nprTopStories = await nprFeed()
@@ -37,8 +58,10 @@ schedule.scheduleJob('30 4 * * *', async () => {
 
   console.log('Constructing email --------------------')
   const data = { 
-    tslaStockData, 
-    vtsaxStockData, 
+    chicagoWeatherData,
+    okcWeatherData,
+    lasVegasWeatherData,
+    processedPolygonGroupData,
     nprTopStories, 
     nprArchitectureStories,
     nprWorldStories,

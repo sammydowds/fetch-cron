@@ -1,0 +1,1 @@
+module.exports = ['TSLA', 'VTSAX', 'AAPL', 'DLTR']
