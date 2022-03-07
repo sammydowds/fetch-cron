@@ -12,6 +12,7 @@ module.exports = {
     }, 
     rssFeeds: {
         cmu: 'https://insights.sei.cmu.edu/blog/feeds/latest/rss/',
+        freeCodeCamp: 'https://www.freecodecamp.org/news/rss',
         historyChannel: 'https://www.history.com/.rss/full/this-day-in-history',
         mitMechanicalEngineering: 'https://news.mit.edu/rss/topic/mechanical-engineering',
         mitUrbanPlanning: 'https://news.mit.edu/rss/topic/urban-studies',

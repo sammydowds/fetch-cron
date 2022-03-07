@@ -6,6 +6,7 @@ const container = {
     borderBottom: '1px solid lightgray'
 }
 
+// TODO: update header to be image hosted by s3 (branding)
 const Header = (props) => {
   return (
     <tr>

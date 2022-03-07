@@ -12,6 +12,10 @@ const railTable = {
     width: '100%'
 }
 
+const smallRailTable = {
+    paddingTop: 36
+}
+
 const newspaperTd = {
     position: 'relative'
 }
@@ -31,7 +35,7 @@ const Rail = ({ largeRailArticles, stockData, weatherData }) => {
             <td style={newspaperTd}>
                 <table style={railTable}>
                     <tr>
-                    <td align='center' style={largeRail}>
+                        <td align='center' style={largeRail}>
                             <table>
                                 <tr>
                                     <td style={laregRailTd}>
@@ -46,7 +50,7 @@ const Rail = ({ largeRailArticles, stockData, weatherData }) => {
                             </table>
                         </td>
                         <td valign='top' align='center'>
-                            <table align='center'>
+                            <table align='center' style={smallRailTable}>
                                 {
                                     weatherData.map((city) => {
                                         return (

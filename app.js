@@ -9,12 +9,18 @@ const stocks = require('./fetches/stocks');
 const fetchOpenWeatherForecastData = require('./fetches/fetchOpenWeatherForecastData');
 require('dotenv').config();
 
+
+// TODO: create a constants file for these
 const CHICAGO_LAT_LONG = [41.85, -87.65]
 const OKC_LAT_LONG = [35.4676,-97.5164]
 const LV_LAT_LONG = [36.1699,-115.1398]
 
+// TODO: add cool material feed https://coolmaterial.com/feed/
+// TODO: add architectural digest https://www.architecturaldigest.com/feed/rss
+
 schedule.scheduleJob('5 4 * * *', async () => {
 
+  // TODO: refactor this data fetching into a single function 
   const currentDate = new Date();
   const pastDate = new Date(currentDate);
 
@@ -25,7 +31,6 @@ schedule.scheduleJob('5 4 * * *', async () => {
   console.log('FORMATTED DATE', formattedDate)
 
   // TODO: split up and read a book - https://pdf-lib.js.org/
-
   console.log('Fetching weather data ------------------')
   const chicagoWeatherData = await fetchOpenWeatherForecastData(CHICAGO_LAT_LONG[0], CHICAGO_LAT_LONG[1], 2)
   const okcWeatherData = await fetchOpenWeatherForecastData(OKC_LAT_LONG[0], OKC_LAT_LONG[1], 2)
@@ -41,13 +46,14 @@ schedule.scheduleJob('5 4 * * *', async () => {
   const nprWorldStories = await nprFeed(rssConstants.nprCategories.world)
   const nprTechStories = await nprFeed(rssConstants.nprCategories.tech)
   const nprPodcasts = await rssParser(rssConstants.rssFeeds.nprPodcasts)
-  console.log(nprPodcasts)
 
   console.log('Fetching engineering feed data -------------------')
+  // TODO: swap out with free code camp
   const cmuSeiRssFeed = await rssParser(rssConstants.rssFeeds.cmu)
   const mitMechE = await rssParser(rssConstants.rssFeeds.mitMechanicalEngineering)
   const mitUrbanP = await rssParser(rssConstants.rssFeeds.mitUrbanPlanning)
   const hackerNews = await rssParser(rssConstants.rssFeeds.hackerNews)
+  const freeCodeCamp = await rssParser(rssConstants.rssFeeds.freeCodeCamp)
 
   console.log('Fetching history feed data -------------------')
   const histChannelFeed = await rssParser(rssConstants.rssFeeds.historyChannel)
@@ -59,6 +65,7 @@ schedule.scheduleJob('5 4 * * *', async () => {
   console.log('Constructing email --------------------')
   const data = { 
     chicagoWeatherData,
+    freeCodeCamp,
     okcWeatherData,
     lasVegasWeatherData,
     processedPolygonGroupData,
