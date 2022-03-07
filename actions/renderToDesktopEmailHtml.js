@@ -6,7 +6,6 @@ const Newspaper = require('../lib/Newspaper/Newspaper').Newspaper
 const React = require('react')
 
 // NOTE: web versions of gmail may not be compatible  
-
 module.exports = (data) => {
     const key = 'custom'
     const cache = createCache({ key })
@@ -16,27 +15,7 @@ module.exports = (data) => {
         React.createElement(
             CacheProvider,
             {value: cache},
-            Newspaper(
-                { 
-                    chicagoWeatherData: data.chicagoWeatherData,
-                    okcWeatherData: data.okcWeatherData,
-                    lasVegasWeatherData: data.lasVegasWeatherData,
-                    processedPolygonGroupData: data.processedPolygonGroupData, 
-                    nprTopStories: data.nprTopStories,
-                    nprArchitectureStories: data.nprArchitectureStories,
-                    nprTechStories: data.nprTechStories,
-                    nprWorldStories: data.nprWorldStories,
-                    cmuSeiRssFeed: data.cmuSeiRssFeed,
-                    mechEngRssFeed: data.mechEngRssFeed,
-                    histChannelFeed: data.histChannelFeed,
-                    nprPodcasts: data.nprPodcasts,
-                    mitMechE: data.mitMechE,
-                    mitUrbanP: data.mitUrbanP,
-                    hackerNews: data.hackerNews,
-                    nerdFitnessFeed: data.nerdFitnessFeed,
-                    muscleAndFitnessFeed: data.muscleAndFitnessFeed
-                  }
-             )
+            Newspaper({ ...data})
         )
     )
 
@@ -52,7 +31,7 @@ module.exports = (data) => {
         <title>Email Preview</title>
         ${styles}
     </head>
-    <body>
+    <body style="margin:0;padding:0;word-spacing:normal;background-color:#939297;">
         <div id="root">${html}</div>
 
         <script src="./bundle.js"></script>

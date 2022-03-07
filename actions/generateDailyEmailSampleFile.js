@@ -9,7 +9,7 @@ require('dotenv').config();
 
 const PREVIEW_LOCATION = process.env.PREVIEW_LOCATION
 const STOCK_DATA = processPolygonApiGroupData(polygonGroupStockData, stocks)
-const EMPTY_RSS_FEED = { 
+const SAMPLE_RSS_FEED = { 
     items: [ 
         { 
             title: 'Today is another day to rock with it, and be kind to each other', 
@@ -29,6 +29,11 @@ const EMPTY_RSS_FEED = {
         },
         { 
             title: 'Ugh, another fake title for testing styles', 
+            content: 'I am running out of fake content and ideas for fake content. Here is some content.', 
+            link: '/' 
+        },
+        { 
+            title: 'Once more, a title of a news article', 
             content: 'I am running out of fake content and ideas for fake content. Here is some content.', 
             link: '/' 
         } 
@@ -56,23 +61,24 @@ const NPR_PODCASTS = {
 }
 const SAMPLE_DATA = {
     chicagoWeatherData: openWeatherForecastDaily,
+    freeCodeCamp: SAMPLE_RSS_FEED,
     okcWeatherData: openWeatherForecastDaily,
     lasVegasWeatherData: openWeatherForecastDaily,
     processedPolygonGroupData: STOCK_DATA, 
     vtsaxStockData: STOCK_DATA, 
-    nprTopStories: EMPTY_RSS_FEED,
-    nprArchitectureStories: EMPTY_RSS_FEED,
-    nprTechStories: EMPTY_RSS_FEED,
-    nprWorldStories: EMPTY_RSS_FEED,
-    cmuSeiRssFeed: EMPTY_RSS_FEED,
-    mechEngRssFeed: EMPTY_RSS_FEED,
-    hackerNews: EMPTY_RSS_FEED,
-    histChannelFeed: EMPTY_RSS_FEED,
+    nprTopStories: SAMPLE_RSS_FEED,
+    nprArchitectureStories: SAMPLE_RSS_FEED,
+    nprTechStories: SAMPLE_RSS_FEED,
+    nprWorldStories: SAMPLE_RSS_FEED,
+    cmuSeiRssFeed: SAMPLE_RSS_FEED,
+    mechEngRssFeed: SAMPLE_RSS_FEED,
+    hackerNews: SAMPLE_RSS_FEED,
+    histChannelFeed: SAMPLE_RSS_FEED,
     nprPodcasts: NPR_PODCASTS,
-    nerdFitnessFeed: EMPTY_RSS_FEED,
-    mitMechE: EMPTY_RSS_FEED,
-    mitUrbanP: EMPTY_RSS_FEED,
-    muscleAndFitnessFeed: EMPTY_RSS_FEED
+    nerdFitnessFeed: SAMPLE_RSS_FEED,
+    mitMechE: SAMPLE_RSS_FEED,
+    mitUrbanP: SAMPLE_RSS_FEED,
+    muscleAndFitnessFeed: SAMPLE_RSS_FEED
 }
 const htmlString = renderToDesktopEmailHtml(SAMPLE_DATA)
 fs.writeFile(PREVIEW_LOCATION, htmlString, err => {

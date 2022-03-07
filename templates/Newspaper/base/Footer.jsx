@@ -3,14 +3,16 @@ import { jsx } from '@emotion/react'
 
 const container = {
     width: '100%',
-    borderTop: '1px solid lightgray',
+    fontSize: 10,
+    color: 'gray',
+    height: 20
 }
 
-const Footer = (props) => {
+const Footer = ({ pageNumber = 1}) => {
   return (
     <tr>
         <td align="center" style={container}>
-            <p>Thanks for reading :)</p>
+            {pageNumber}
         </td>
     </tr>
   )

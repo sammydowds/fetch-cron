@@ -7,7 +7,7 @@ const Stock = ({ ticker, previousClose, open}) => {
   const isUp = open < previousClose
   const percentChange = Math.round(10 * 100 * (previousClose - open)/(open))/10
   return (
-      <p css={styles.stockContainer}>
+      <p align='center' css={styles.stockContainer}>
         <strong css={styles.ticker}>
           {ticker}
         </strong>
