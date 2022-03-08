@@ -55,7 +55,7 @@ const Rail = ({ largeRailArticles, stockData, weatherData }) => {
                                     weatherData.map((city) => {
                                         return (
                                             <tr key={city.name}>
-                                                <td key={`${city.name}-td`} style={smallRailTd}>
+                                                <td style={smallRailTd}>
                                                     <Forecast
                                                         data={city}
                                                     />
@@ -68,7 +68,7 @@ const Rail = ({ largeRailArticles, stockData, weatherData }) => {
                                     Object.keys(stockData).map((ticker) => {
                                         return(
                                             <tr key={ticker}>
-                                                <td key={`${ticker}-td`} style={smallRailTd}>
+                                                <td style={smallRailTd}>
                                                     <Stock 
                                                         previousClose={stockData[ticker].c}
                                                         open={stockData[ticker].o}

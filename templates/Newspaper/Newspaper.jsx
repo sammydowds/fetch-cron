@@ -1,7 +1,5 @@
 /** @jsx jsx */
 import { jsx } from '@emotion/react'
-import ThreeArticleSection from './base/ThreeArticleSection'
-import FourArticleSection from './base/FourArticleSection'
 import MultiSmallArticleSection from './base/MultiSmallArticleSection'
 import Paper from './base/Paper'
 import Header from './base/Header'
@@ -15,11 +13,6 @@ const container = {
   padding: '10px 0px'
 }
 
-// TODO: create indicators for daily throughput of
-// tsa checkpoints, hotel occupancy, box office movie sales (box office mojo), resturant (open table data), public transport (apple)
-// TODO: create weather section and stock section
-// TODO: break out "this day in history section"
-// TODO: create more definitive sections 
 export const Newspaper = (data) => {
   return (
     <div align='center' role="article" aria-roledescription="email" lang="en" style={container}>

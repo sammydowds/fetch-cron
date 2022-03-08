@@ -7,7 +7,7 @@ const container = {
 
 const headline = {
     fontSize: '26px',
-    margin: 0
+    margin: 0,
 }
 
 const content = {
