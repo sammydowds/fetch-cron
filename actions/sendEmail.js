@@ -1,11 +1,9 @@
 // const getDailyEmailHtml = require('./getDailyEmailHtml')
-const renderToDesktopEmailHtml = require('./renderToDesktopEmailHtml')
 const sgMail = require('@sendgrid/mail')
 require('dotenv').config();
 sgMail.setApiKey(process.env.SENDGRID_API_KEY)
 
-module.exports = (data) => {
-      const html = renderToDesktopEmailHtml(data)
+module.exports = (html) => {
       const msg = {
         to: [process.env.TO_EMAIL, process.env.BACKUP_EMAIL],
         from: process.env.FROM_EMAIL,

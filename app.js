@@ -1,5 +1,6 @@
 const schedule = require('node-schedule');
 const sendEmail = require('./actions/sendEmail');
+const renderToDesktopEmailHtml = require('./actions/renderToDesktopEmailHtml')
 const processPolygonApiGroupData = require('./fetches/helpers/processPolygonApiGroupData')
 const fetchPolygonStockData = require('./fetches/fetchPolygonStockData')
 const rssConstants = require('./fetches/rss/constants')
@@ -56,7 +57,8 @@ schedule.scheduleJob('5 4 * * *', async () => {
     hackerNews,
     histChannelFeed,
   }
-  const emailSentMessage = await sendEmail(data)
+  const html = renderToDesktopEmailHtml(data)
+  const emailSentMessage = await sendEmail(html)
   console.log(emailSentMessage)
 })
 
