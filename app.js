@@ -42,6 +42,7 @@ schedule.scheduleJob('5 4 * * *', async () => {
   console.log('Fetching engineering feed data -------------------')
   const hackerNews = await rssParser(rssConstants.rssFeeds.hackerNews)
   const freeCodeCamp = await rssParser(rssConstants.rssFeeds.freeCodeCamp)
+  const incrementStripe = await rssParser(rssConstants.rssFeeds.incrementStripe)
 
   console.log('Fetching history feed data -------------------')
   const histChannelFeed = await rssParser(rssConstants.rssFeeds.historyChannel)
@@ -56,6 +57,7 @@ schedule.scheduleJob('5 4 * * *', async () => {
     nprTopStories, 
     hackerNews,
     histChannelFeed,
+    incrementStripe
   }
   const html = renderToDesktopEmailHtml(data)
   const emailSentMessage = await sendEmail(html)

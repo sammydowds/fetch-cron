@@ -78,7 +78,8 @@ const SAMPLE_DATA = {
     nerdFitnessFeed: SAMPLE_RSS_FEED,
     mitMechE: SAMPLE_RSS_FEED,
     mitUrbanP: SAMPLE_RSS_FEED,
-    muscleAndFitnessFeed: SAMPLE_RSS_FEED
+    muscleAndFitnessFeed: SAMPLE_RSS_FEED,
+    incrementStripe: SAMPLE_RSS_FEED
 }
 const htmlString = renderToDesktopEmailHtml(SAMPLE_DATA)
 fs.writeFile(PREVIEW_LOCATION, htmlString, err => {

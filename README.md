@@ -23,3 +23,7 @@ Transpile the templates to `target:node` (output in `/lib`)
 ```
 npm run build
 ```
+
+## Future Ideas
+
+I think there is a potential evolution of this where I spin up a server in parallel to serve the html. Email clients limit CSS and a level of user interaction that I would like to have (embedded podcasts/js).

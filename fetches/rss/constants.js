@@ -22,5 +22,7 @@ module.exports = {
         nerdFitness: 'https://www.nerdfitness.com/blog/feed/',
         fitBod: 'https://fitbod.me/feed/',
         muscleAndFitness: 'https://www.muscleandfitness.com/feed/',
+        tldrSecurity: 'https://tldrsec.com/feed.xml',
+        incrementStripe: 'https://increment.com/feed.xml'
     }
 }

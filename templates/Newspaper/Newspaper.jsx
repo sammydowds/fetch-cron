@@ -47,6 +47,7 @@ export const Newspaper = (data) => {
               [
                 { ...data.freeCodeCamp.items[0], sectionTitle: 'Free Code Camp' },
                 { ...data.freeCodeCamp.items[1], sectionTitle: 'Free Code Camp'},
+                { ...data.incrementStripe.items[0], sectionTitle: 'Increment - Stripe' },
               ]
             } 
             isLastSection
