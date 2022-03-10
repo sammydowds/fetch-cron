@@ -15,7 +15,7 @@ const CHICAGO_LAT_LONG = [41.85, -87.65]
 const OKC_LAT_LONG = [35.4676,-97.5164]
 const LV_LAT_LONG = [36.1699,-115.1398]
 
-schedule.scheduleJob('5 4 * * *', async () => {
+schedule.scheduleJob('47 5 * * *', async () => {
 
   // create yesterday date
   const currentDate = new Date();
@@ -42,7 +42,9 @@ schedule.scheduleJob('5 4 * * *', async () => {
   console.log('Fetching engineering feed data -------------------')
   const hackerNews = await rssParser(rssConstants.rssFeeds.hackerNews)
   const freeCodeCamp = await rssParser(rssConstants.rssFeeds.freeCodeCamp)
-  const incrementStripe = await rssParser(rssConstants.rssFeeds.incrementStripe)
+  const mitEngineering = await rssParser(rssConstants.rssFeeds.mitEngineering)
+  const fiveThirtyEight = await rssParser(rssConstants.rssFeeds.fiveThirtyEight)
+  const investopedia = await rssParser(rssConstants.rssFeeds.investopedia)
 
   console.log('Fetching history feed data -------------------')
   const histChannelFeed = await rssParser(rssConstants.rssFeeds.historyChannel)
@@ -57,7 +59,9 @@ schedule.scheduleJob('5 4 * * *', async () => {
     nprTopStories, 
     hackerNews,
     histChannelFeed,
-    incrementStripe
+    mitEngineering,
+    investopedia,
+    fiveThirtyEight
   }
   const html = renderToDesktopEmailHtml(data)
   const emailSentMessage = await sendEmail(html)

@@ -79,7 +79,11 @@ const SAMPLE_DATA = {
     mitMechE: SAMPLE_RSS_FEED,
     mitUrbanP: SAMPLE_RSS_FEED,
     muscleAndFitnessFeed: SAMPLE_RSS_FEED,
-    incrementStripe: SAMPLE_RSS_FEED
+    incrementStripe: SAMPLE_RSS_FEED,
+    mitEngineering: SAMPLE_RSS_FEED,
+    investopedia: SAMPLE_RSS_FEED,
+    fiveThirtyEight: SAMPLE_RSS_FEED,
+    hackaday: SAMPLE_RSS_FEED
 }
 const htmlString = renderToDesktopEmailHtml(SAMPLE_DATA)
 fs.writeFile(PREVIEW_LOCATION, htmlString, err => {
