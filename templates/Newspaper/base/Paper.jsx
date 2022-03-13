@@ -3,7 +3,7 @@ import { jsx } from '@emotion/react'
 
 const table = {
     width: 600,
-    border: '1px solid lightgray',
+    border: '1px solid #a67c00',
     borderSpacing: 0,
     background: 'white'
 }

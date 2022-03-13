@@ -15,6 +15,7 @@ module.exports = {
         freeCodeCamp: 'https://www.freecodecamp.org/news/rss',
         historyChannel: 'https://www.history.com/.rss/full/this-day-in-history',
         mitMechanicalEngineering: 'https://news.mit.edu/rss/topic/mechanical-engineering',
+        mitEngineering: 'https://news.mit.edu/rss/school/engineering', // this one should be long form
         mitUrbanPlanning: 'https://news.mit.edu/rss/topic/urban-studies',
         nodeWeekly: 'https://cprss.s3.amazonaws.com/nodeweekly.com.xml',
         nprPodcasts: 'https://feeds.npr.org/510318/podcast.xml',
@@ -23,6 +24,10 @@ module.exports = {
         fitBod: 'https://fitbod.me/feed/',
         muscleAndFitness: 'https://www.muscleandfitness.com/feed/',
         tldrSecurity: 'https://tldrsec.com/feed.xml',
-        incrementStripe: 'https://increment.com/feed.xml'
+        incrementStripe: 'https://increment.com/feed.xml',
+        hackAday: 'https://hackaday.com/blog/feed/',
+        fiveThirtyEight: 'https://fivethirtyeight.com/feed/',
+        investopedia: 'https://www.investopedia.com/feedbuilder/feed/getfeed?feedName=rss_headline',
+        theEngineersPost: 'https://www.theengineerspost.com/feed/',
     }
 }

@@ -6,11 +6,12 @@ import Header from './base/Header'
 import Footer from './base/Footer'
 import Headline from './base/Headline'
 import Rail from './base/Rail'
+import LargeArticle from './base/LargeArticle'
 
 const container = {
   textSizeAdjust:'100%',
   backgroundColor: '#939297',
-  padding: '10px 0px'
+  padding: '10px 0px',
 }
 
 export const Newspaper = (data) => {
@@ -45,14 +46,38 @@ export const Newspaper = (data) => {
           <MultiSmallArticleSection
             articles={
               [
-                { ...data.freeCodeCamp.items[0], sectionTitle: 'Free Code Camp' },
-                { ...data.freeCodeCamp.items[1], sectionTitle: 'Free Code Camp'},
-                { ...data.incrementStripe.items[0], sectionTitle: 'Increment - Stripe' },
+                { ...data.fiveThirtyEight.items[0], sectionTitle: 'FiveThirtyEight' },
+                { ...data.investopedia.items[1], sectionTitle: 'Investopedia'},
               ]
             } 
             isLastSection
           />
           <Footer />
+      </Paper>
+
+      <div style={{ paddingTop: 20 }}></div>
+      
+      <Paper>
+        <tr>
+          <td style={{ padding: 20 }}>
+            <LargeArticle 
+              title={data.mitEngineering.items[0].title}
+              summary={data.mitEngineering.items[0]['content:encoded']}
+              link={data.mitEngineering.items[0].link}
+              sectionTitle={'MIT Engineering'}
+            />
+          </td>
+        </tr>
+        <MultiSmallArticleSection
+          articles={
+            [
+              { ...data.freeCodeCamp.items[0], sectionTitle: 'Free Code Camp' },
+              { ...data.freeCodeCamp.items[1], sectionTitle: 'Free Code Camp'},
+            ]
+          } 
+          isLastSection
+        />
+        <Footer pageNumber={2}/>
       </Paper>
     </div>
   )
