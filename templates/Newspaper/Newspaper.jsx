@@ -11,7 +11,7 @@ import LargeArticle from './base/LargeArticle'
 const container = {
   textSizeAdjust:'100%',
   backgroundColor: '#939297',
-  padding: '10px 0px'
+  padding: '10px 0px',
 }
 
 export const Newspaper = (data) => {
