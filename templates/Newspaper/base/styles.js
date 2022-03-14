@@ -36,15 +36,20 @@ export const forecastCity = css`
 `
 
 export const highTemp = css`
-    font-size: 12px;
+    font-size: 10px;
     font-weight: lighter;
     color: #C75000;
 `
 
 export const lowTemp = css`
-    font-size: 12px;
+    font-size: 10px;
     font-weight: lighter;
     color: #1C0080;
+`
+
+export const tempLine = css`
+    font-size: 8px;
+    font-weight: lighter;
 `
 
 export const forecastIcon = css`
@@ -55,4 +60,17 @@ export const forecastIcon = css`
 export const noSpacing = css`
     margin: 0px;
     padding: 0px;
+`
+
+export const smallTicker = css`
+    font-size: 10px;
+`
+
+export const smallPrice = css`
+    font-size: 10px;
+    margin-left: 2px;
+`
+
+export const smallDelta = css`
+    font-size: 8px;
 `

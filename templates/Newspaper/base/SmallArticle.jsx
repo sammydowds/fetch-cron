@@ -9,7 +9,8 @@ const sectionTitleText = {
 
 const header = {
   marginTop: 5,
-  fontSize: '14px'
+  fontSize: '14px',
+  fontWeight: 'lighter'
 }
 
 const linkStyle = {

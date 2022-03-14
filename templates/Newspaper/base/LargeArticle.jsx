@@ -8,7 +8,8 @@ const sectionTitleText = {
 }
 
 const header = {
-  marginTop: 5
+  marginTop: 5,
+  fontWeight: 'lighter'
 }
 
 const LargeArticle = ({ sectionTitle, title, summary, link }) => {

@@ -1,1 +1,1 @@
-module.exports = ['TSLA', 'VTSAX', 'AAPL', 'DLTR']
+module.exports = ['TSLA', 'VTSAX', 'AAPL', 'DLTR', 'FB', 'AMZN']

@@ -6,8 +6,9 @@ const container = {
 }
 
 const headline = {
-    fontSize: '26px',
+    fontSize: '22px',
     margin: 0,
+    fontWeight: 'lighter'
 }
 
 const content = {
